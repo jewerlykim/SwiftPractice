@@ -8,6 +8,17 @@ import SwiftUI
 
 
 struct MyVstackView : View{
+    
+    // 데이터를 연동시킨다
+    @Binding
+    var isActivated : Bool
+    
+    // 생성자
+    init(isActivated : Binding<Bool> =
+            .constant(false)) {
+        _isActivated = isActivated
+    }
+    
     var body : some View {
         VStack{
             Text("1!")
@@ -22,8 +33,9 @@ struct MyVstackView : View{
             Text("4!")
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .font(.system(size: 40))
-        } // HStack
-        .background(Color.blue)
+        } // VStack
+        .background(self.isActivated ? Color.green : Color.red)
+        .padding(self.isActivated ? 10 : 0)
     }
 }
 
