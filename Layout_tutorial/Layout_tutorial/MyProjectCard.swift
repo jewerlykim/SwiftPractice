@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct MyprojectCard : View {
+    
+    // 클래스는 struct는 값이 고정이 되어있다 클래스는 참조형이고 스트럭트안에서 값을 설정하고 변경할 수 있게 만들어주는게 State
+    @State var shouldShowAlert : Bool = false
+    
+    
     var body: some View {
         VStack(alignment : .leading, spacing : 0) {
             Rectangle().frame(height : 0)
@@ -37,14 +42,22 @@ struct MyprojectCard : View {
                     .frame(width: 50, height: 50)
                     .clipShape(Circle())
                 Spacer()
-                Text("확인")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width : 80)
-                    .background(Color.blue)
-                    .cornerRadius(20)
-                    
+                
+                Button(action : {
+                    print("확인 버튼이 클릭되었다.")
+                    self.shouldShowAlert = true
+                }){
+                    Text("확인")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width : 80)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                }.alert(isPresented :
+                            $shouldShowAlert){
+                    Alert(title: Text("알림창입니다!"))
+                }
             } // HStack
         }// VStack
         .padding(30)
