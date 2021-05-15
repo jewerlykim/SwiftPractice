@@ -218,3 +218,62 @@ Image("myImage")
 	.edgesIgnoringSafeArea(.all) // safe area 없애기
 ```
 
+## 7 . VStack, HStack, ZStack
+### VStack
+#### Structure
+![](https://images.velog.io/images/jewelrykim/post/ed21e151-159c-4955-9b9b-b812ef0a942e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.13.28.png)
+이런식으로 Vertical로 Stack이 쌓이게 된다.
+
+```swift
+VStack(alignment : .leading, spacing : 10) {
+// alignment : 왼쪽 정렬, 가운데 정렬, 오른쪽 정렬
+// spacing : 각 view 사이의 간격
+}
+```
+### HStack
+#### Structure
+![](https://images.velog.io/images/jewelrykim/post/e3cdf827-c204-4365-b3f3-d6125fa169a0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.16.50.png)
+Horizontal로 View가 쌓인다.
+```swift
+HStack(alignment : .center){
+}
+```
+### ZStack
+#### Structure
+![](https://images.velog.io/images/jewelrykim/post/20e27705-a6e9-473c-8c23-e231b20085f1/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.18.33.png)
+3차원 형식으로 View가 겹겹이 쌓인다.
+```swift
+ZStack{ // 위에서부터 아래로 쌓임
+Rectangle()
+.frame(width: 200, height: 200, alignment:.center)
+.foregroundColor(Color.red)
+.zIndex(0)
+
+Rectangle()
+.frame(width: 100, height: 100, alignment:.center)
+.foregroundColor(Color.yellow)
+.zIndex(1.0)
+
+Image(systemName: "flame.fill")
+.font(.system(size: 30))
+.foregroundColor(.white)
+.zIndex(2)
+}
+```
+zIndex가 낮을수록 가장 아래에 쌓인다. default 값은 0.
+위 코드를 실행하면 아래 그림과 같다.
+![](https://images.velog.io/images/jewelrykim/post/040cc0a9-87fb-402a-b7fe-04358fbdde4b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.21.13.png)
+
+## 8 . Layout 1
+### ZStack 정렬
+```swift
+ZStack(alignment : .bottomTrailing){ // 오른쪽 아래 정렬
+}
+```
+### ScrollView
+```swift
+ScrollView{
+	VStack{
+	}
+}
+```
