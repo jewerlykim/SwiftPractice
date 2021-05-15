@@ -277,3 +277,114 @@ ScrollView{
 	}
 }
 ```
+## 9 . Costum View
+![](https://images.velog.io/images/jewelrykim/post/4c14f547-667a-47e2-8429-c0a11b909007/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-15%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.02.54.png)
+이런 식으로 같은 카드지만 내용을 다르게 하는 방법에 대해서 알아보자.
+```swift
+// MyCard.swift
+struct MyCard : View {
+// 멤버 변수 넣는 방법
+var icon : String
+var title : String
+var start : String
+var end : String
+var bgColor : Color
+
+var body : some View {
+	HStack(spacing : 20) {
+		Image(systemName: icon)
+			.font(.system(size: 40))
+			.foregroundColor(.white)
+		VStack(alignment : .leading, spacing : 0) {
+			Divider().opacity(0)
+			Text(title)
+				.font(.system(size: 25))
+				.fontWeight(.bolde)
+				.foregroundColor(.white)
+
+		Spacer().frame(height : 5)
+
+		Text("\(start) - \(end)")
+			.foregroundColor(.white)
+
+		}
+	}// HStack
+	.padding(30)
+	.background(bgColor)
+	.cornerRadius(20)
+	}
+}
+```
+```swift
+// ContentView.swift
+MyCard(icon: "tray.fill", title: "책상 정리하기", start: "10 AM", end: "11 AM", bgColor: Color.blue)
+```
+
+## 10 . List View
+```swift
+// 1
+List{
+	Text("리스트")
+	Text("리스트")
+	Text("리스트")
+	Text("리스트")
+}
+```
+```swift
+// 2
+List{
+	ForEach(1...10, id : \.self){
+		Text("마이 리스트 \($0)")
+	}
+}
+```
+```swift
+// 3
+List{
+	ForEach(1...10, id : \.self){ itemIndex in
+		Text("마이 리스트 \(itemIndex)")
+	}
+}
+```
+```swift
+// section
+List{
+	Section(header : Text("오늘 할 일")){
+		ForEach(1...3 : \.self){itemIndex in
+			MyCard(icon: "book.fill", title: "책읽기 \(itemIndex)", 				start: "1 PM", end: "3 PM", bgColor: Color.green)
+			}
+	}.listRoxInsets(EdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10)) // 섹션 안의 목록들 간격 조정
+	.listRowBackground(Color.yellow) // 섹션에 백그라운드 칼라 넣기
+}// List
+```
+```swift
+// List Properties
+List{
+}.listStyle(GroupedListStyle()) // 뷰들이 묶임 PlainListStyle() 이 기본
+.navigationBarTitle("네비게이션 바 제목")
+.onAppear{ // 뷰가 보일때 무엇을 할 것인가
+	self.isNavigationBarHidden = false
+}
+```
+#### state, binding 복습
+```swift
+// ContentView
+@State  var  isNavigationBarHidden : Bool = false
+NavigationLink(destination : MyList(isNavigationBarHidden : self.$isNavigationBarHidden)){
+}
+```
+```swift
+// MyList
+@Binding  var  isNavigationBarHidden : Bool
+// 생성자에서 초기화
+init(isNavigationBarHidden : Binding<Bool> = .constant(false)){
+	// 구분선 없애주기 위한 작업
+	if #available(iOS 14.0, *){
+	}else{
+		UITableView.appearance().tableFooterView = UIView()
+	}
+	UITableView.appearance().separatorStyle = .none
+
+	_isNavigationBarHidden = isNavigationBarHidden // binding = 외부
+}
+```
