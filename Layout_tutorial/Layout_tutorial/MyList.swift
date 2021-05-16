@@ -64,7 +64,7 @@ struct MyList : View {
         }// List
         .listStyle(GroupedListStyle()) // 묶임
 //        .listStyle(PlainListStyle()) // 기본
-        .navigationBarTitle("내 목록")
+//        .navigationBarTitle("내 목록")
         .onAppear{
             self.isNavigationBarHidden = false
         }
