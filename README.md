@@ -388,3 +388,39 @@ init(isNavigationBarHidden : Binding<Bool> = .constant(false)){
 	_isNavigationBarHidden = isNavigationBarHidden // binding = 외부
 }
 ```
+
+
+## 11 . NavigationView
+### Properties
+#### displayMode .inline
+```swift
+NavigationView{
+	.navigationBarTitle("안녕하세요", displayMode : .inline)
+}
+```
+![](https://images.velog.io/images/jewelrykim/post/d41adabb-6f9d-49ff-a892-94285f42cf6e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.09.43.png)
+#### displayMode .large
+```swift
+NavigationView{
+	.navigationBarTitle("안녕하세요", displayMode : .large)
+}
+```
+![](https://images.velog.io/images/jewelrykim/post/22d5d099-89d4-4be7-abb7-dfb1ea0828e3/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.10.18.png)
+#### navigationBarItems
+```swift
+.navigationBarItems(
+	leading : Button(
+		action: { print("호호") }){
+	Text("하하")
+}, trailing : 
+	NavigationLink(destination : Text("다음 화면")){
+		Image(systemName : "bookmark.fill")
+			.font(.system(size:25))
+			.foregroundColor(.green)
+})
+```
+#### .leading(왼쪽)
+![](https://images.velog.io/images/jewelrykim/post/29dcebbd-1e1d-40cc-8f13-eaf2ef129516/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.14.55.png)
+
+#### .trailing(오른쪽)
+![](https://images.velog.io/images/jewelrykim/post/4f6572cd-3df6-49ba-b044-da169ea18b4a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.15.25.png)
