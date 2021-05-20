@@ -424,3 +424,62 @@ NavigationView{
 
 #### .trailing(오른쪽)
 ![](https://images.velog.io/images/jewelrykim/post/4f6572cd-3df6-49ba-b044-da169ea18b4a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.15.25.png)
+
+
+## 12 . GeometryReader
+기기 기종에 따라 다른 화면 크기에 비율로 일정한 모습의 뷰를 그릴 수 있는 방법
+### Usage
+```swift
+var body : some View {
+	GeometryReader { geometryReader in // 변수명
+		Text("1")
+			.frame(width : geometryReader.size.width / 3)
+	}//GeometryReader
+}//body
+```
+### Enum
+```swift
+enum Index {
+	case one, two, three
+}
+```
+### Button
+```swift
+@State var index : Index = .one
+
+Button(action : {
+	withAnimation{
+		self.index = .one
+	}
+}){
+	Text("1")
+		.padding(.horizontal, self.index == .one ? 50 : 0)
+}
+```
+
+## 13 . TabView
+바텀 네비게이션 바
+```swift
+TabView{
+// 보여질 화면
+	Text("1번")
+		.tabItem {
+			Image(systemName: "airplane")
+			Text("1번")
+		}
+		.tag(0)
+	Text("2번")
+		.tabItem {
+			Image(systemName: "flame.fill")
+			Text("2번")
+		}
+		.tag(1)
+	Text("3번")
+		.tabItem {
+			Image(systemName: "doc.fill")
+			Text("3번")
+		}
+		.tag(2)
+}
+```
+![](https://images.velog.io/images/jewelrykim/post/52fe36a5-5e63-4bf2-bf06-addf9f539c5f/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.02.52.png)
