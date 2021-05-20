@@ -16,6 +16,7 @@
 		0B66AF07264FFA4400886458 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AF06264FFA4400886458 /* MyCard.swift */; };
 		0B66AF09264FFDEA00886458 /* MyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AF08264FFDEA00886458 /* MyList.swift */; };
 		0BF2C34F265697020032C92C /* MyGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2C34E265697020032C92C /* MyGeometryReader.swift */; };
+		0BF2C35126569EBB0032C92C /* MytapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2C35026569EBB0032C92C /* MytapView.swift */; };
 		0BF85EDE2651387200F04597 /* MyNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF85EDD2651387200F04597 /* MyNavigationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		0B66AF06264FFA4400886458 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
 		0B66AF08264FFDEA00886458 /* MyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyList.swift; sourceTree = "<group>"; };
 		0BF2C34E265697020032C92C /* MyGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGeometryReader.swift; sourceTree = "<group>"; };
+		0BF2C35026569EBB0032C92C /* MytapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytapView.swift; sourceTree = "<group>"; };
 		0BF85EDD2651387200F04597 /* MyNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				0B66AF06264FFA4400886458 /* MyCard.swift */,
 				0BF85EDD2651387200F04597 /* MyNavigationView.swift */,
 				0BF2C34E265697020032C92C /* MyGeometryReader.swift */,
+				0BF2C35026569EBB0032C92C /* MytapView.swift */,
 			);
 			path = Layout_tutorial;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B17AA1B264EAEE600F939BE /* MyProjectCard.swift in Sources */,
+				0BF2C35126569EBB0032C92C /* MytapView.swift in Sources */,
 				0B17AA0E264EAEAD00F939BE /* ContentView.swift in Sources */,
 				0B17AA1D264EB26F00F939BE /* MyBasicCard.swift in Sources */,
 				0B66AF07264FFA4400886458 /* MyCard.swift in Sources */,
