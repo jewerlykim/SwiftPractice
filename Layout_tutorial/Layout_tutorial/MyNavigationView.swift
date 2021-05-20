@@ -14,7 +14,7 @@ struct MynavigationView : View{
                  //large or inline
             MyList()
             
-            .navigationBarTitle("안녕하세요", displayMode: .inline)
+            .navigationBarTitle("안녕하세요", displayMode: .large)
                 .navigationBarItems(leading: Button(action : {
                     print("호호")
                 }){
