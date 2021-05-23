@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0E6D85265A25E200AEBACC /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E6D84265A25E200AEBACC /* MyView.swift */; };
 		0B17AA0C264EAEAD00F939BE /* Layout_tutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17AA0B264EAEAD00F939BE /* Layout_tutorialApp.swift */; };
 		0B17AA0E264EAEAD00F939BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17AA0D264EAEAD00F939BE /* ContentView.swift */; };
 		0B17AA10264EAEB100F939BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B17AA0F264EAEB100F939BE /* Assets.xcassets */; };
 		0B17AA13264EAEB100F939BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B17AA12264EAEB100F939BE /* Preview Assets.xcassets */; };
 		0B17AA1B264EAEE600F939BE /* MyProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17AA1A264EAEE600F939BE /* MyProjectCard.swift */; };
 		0B17AA1D264EB26F00F939BE /* MyBasicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B17AA1C264EB26F00F939BE /* MyBasicCard.swift */; };
+		0B573BBD2659103E00ADB8AF /* MyCustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B573BBC2659103E00ADB8AF /* MyCustomTabView.swift */; };
 		0B66AF07264FFA4400886458 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AF06264FFA4400886458 /* MyCard.swift */; };
 		0B66AF09264FFDEA00886458 /* MyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AF08264FFDEA00886458 /* MyList.swift */; };
 		0BF2C34F265697020032C92C /* MyGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2C34E265697020032C92C /* MyGeometryReader.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0E6D84265A25E200AEBACC /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		0B17AA08264EAEAD00F939BE /* Layout_tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Layout_tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B17AA0B264EAEAD00F939BE /* Layout_tutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout_tutorialApp.swift; sourceTree = "<group>"; };
 		0B17AA0D264EAEAD00F939BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		0B17AA14264EAEB100F939BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B17AA1A264EAEE600F939BE /* MyProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectCard.swift; sourceTree = "<group>"; };
 		0B17AA1C264EB26F00F939BE /* MyBasicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBasicCard.swift; sourceTree = "<group>"; };
+		0B573BBC2659103E00ADB8AF /* MyCustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabView.swift; sourceTree = "<group>"; };
 		0B66AF06264FFA4400886458 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
 		0B66AF08264FFDEA00886458 /* MyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyList.swift; sourceTree = "<group>"; };
 		0BF2C34E265697020032C92C /* MyGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGeometryReader.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				0BF85EDD2651387200F04597 /* MyNavigationView.swift */,
 				0BF2C34E265697020032C92C /* MyGeometryReader.swift */,
 				0BF2C35026569EBB0032C92C /* MytapView.swift */,
+				0B573BBC2659103E00ADB8AF /* MyCustomTabView.swift */,
+				0B0E6D84265A25E200AEBACC /* MyView.swift */,
 			);
 			path = Layout_tutorial;
 			sourceTree = "<group>";
@@ -161,9 +167,11 @@
 			files = (
 				0B17AA1B264EAEE600F939BE /* MyProjectCard.swift in Sources */,
 				0BF2C35126569EBB0032C92C /* MytapView.swift in Sources */,
+				0B0E6D85265A25E200AEBACC /* MyView.swift in Sources */,
 				0B17AA0E264EAEAD00F939BE /* ContentView.swift in Sources */,
 				0B17AA1D264EB26F00F939BE /* MyBasicCard.swift in Sources */,
 				0B66AF07264FFA4400886458 /* MyCard.swift in Sources */,
+				0B573BBD2659103E00ADB8AF /* MyCustomTabView.swift in Sources */,
 				0B17AA0C264EAEAD00F939BE /* Layout_tutorialApp.swift in Sources */,
 				0B66AF09264FFDEA00886458 /* MyList.swift in Sources */,
 				0BF2C34F265697020032C92C /* MyGeometryReader.swift in Sources */,
