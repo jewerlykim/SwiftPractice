@@ -483,3 +483,116 @@ TabView{
 }
 ```
 ![](https://images.velog.io/images/jewelrykim/post/52fe36a5-5e63-4bf2-bf06-addf9f539c5f/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-05-20%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.02.52.png)
+
+## 14 . Custom Tab View
+13번에서는 SwiftUI 에서 제공하는 Tab View 를 통해 TabView를 구현해보았다. 14번에서는 Customizing 한 TabView를 만들어보고자 한다. 완성 모습은 다음 그림과 같다.
+![](https://images.velog.io/images/jewelrykim/post/9a61c1b0-9dd2-499b-8de2-c72770dd3e7b/0523155348562558.jpg)
+탭 버튼을 누를 때마다 달라지는 변수를 enum으로 정의한다.
+```swift
+enum TabIndex {
+	case home
+	case cart
+	case profile
+	// or case home, cart, profile
+}
+```
+누를 때 보여지는 뷰를 함수로 정의한다.
+```swift
+@State var tabIndex : TabIndex
+
+func changeMyView(tabIndex : TabIndex) -> MyView { // 기존에 만들어둔 뷰
+	switch tabIndex {
+	case .home:
+		return MyView(title : "홈", bgColor : Color.green)
+	case .cart:
+		return MyView(title : "장바구니", bgColor : Color.purple)	
+	case .profile:
+		return MyView(title : "프로필", bgColor : Color.blue)
+	default:
+		return MyView(title : "홈", bgColor : Color.green)	
+	}
+}
+```
+ZStack에서 뷰를 보여준다.
+```swift
+ZStack(alignment : .bottom){
+	self.changeMyView(tabIndex : self.tabIndex)
+	...
+	code
+	...
+}
+```
+버튼 색 바꾸는 함수 정의
+```swift
+func changeIconColor(tabIndex : TabIndex) -> Color {
+	switch tabIndex{
+	case .home:
+		return Color.green
+	case .cart:
+		return Color.purple
+	case .profile:
+		return Color.blue
+	default:
+		return Color.green
+	}
+}
+```
+
+
+
+탭 버튼 누를 시 탭버튼에 생기는 변화
+1 . 버튼 이미지가 살짝 커진다.
+2 . 버튼 색깔이 바뀐다.
+3 . 버튼 위치가 살짝 위로 올라간다.
+```swift
+@State var largerScale : CGFloat = 1.4 // 커질 크기(비례)
+
+Button(action : {
+	print("홈 버튼 클릭")
+	withAnimation{ // 애니메이션 효과 적용
+		self.tabIndex = .home
+	}
+}){
+	Image(systemName: "house.fill")
+		.font(.system(size: 25))
+		.scaleEffect(self.tabIndex == .home ? self.largerScale : 1.0)
+		// 누르면 1.4배로 커짐
+		.foregroundColor(self.tabIndex == .home ? self.changeIconColor(tabIndex: self.tabIndex) : Color.gray)
+		// 누르면 색이 바뀜
+		.frame(width : geometry.size.width / 3, height: 50)
+		// GeometryReader
+		.offset(y : self.tabIndex == .home ? -10 : 0)
+		// 누르면 10만큼 위로 올라감
+}.background(Color.white)
+```
+하얀 동그라미 왔다갔다 거리는 함수 정의
+```swift
+func calcCircleBgPosition(tabIndex : TabIndex,
+					geometry : GeometryProxy) -> CGFloat{
+	switch tabIndex{
+	case .home:
+		return -(geometry.size.width / 3)
+	case .cart:
+		return 0
+	case .profile:
+		return geometry.size.width / 3
+	default:
+		return -(geometry.size.width / 3)
+	}
+}
+```
+ZStack 안에서 동그라미 만들기
+```swift
+Circle()
+	.frame(width:90, height: 90)
+	.offset(x : self.calcCircleBgPosition(tabIndex: self.tabIndex,
+	 geometry: geometry), y:UIApplication.shared.windows.first?
+	.safeAreaInsets.bottom == 0 ? 15 : 0)
+	.foregroundColor(Color.white)
+```
+safearea로 핸드폰 기종 나눠서 처리하기
+```swift
+UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15 : 0
+// 아래쪽의 safearea가 0 이라면 
+```
+
